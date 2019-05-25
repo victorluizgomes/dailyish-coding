@@ -5,10 +5,32 @@ Given an array of time intervals (start, end) for classroom lectures
 For example, given [(30, 75), (0, 50), (60, 150)], you should return 2.
 '''
 
+def collide_time(time1, time2):
+    if time1[1] < time2[0] or time2[1] < time1[0]:
+        return False
+    else:
+        return True
+
+
+def collide(room, time):
+    col = False
+    for interval in room:
+        if collide_time(interval, time):
+            col = True
+            break
+        
+    return col
+    
+
 def rooms(interv):
 
-    # TODO not a finished working solution
+    if len(interv) <= 1:
+        return len(interv)
 
+    #TODO:
+
+    # Bad solution:
+    '''
     if len(interv) <= 1:
         return len(interv)
 
@@ -25,8 +47,7 @@ def rooms(interv):
                 rooms += 1
                 break
 
-
-    return rooms
+    return rooms '''
 
 
 
